@@ -1,0 +1,48 @@
+{{!< default}}
+
+{{#tag}}
+<header class="tag-header outer no-cover">
+    <div class="inner">
+        <div class="tag-header-content">
+            <div class="tag-header-left">
+                <h1 class="tag-title">
+                    {{#if meta_title}}
+                        {{meta_title}}
+                    {{else}}
+                        {{name}}
+                    {{/if}}
+                </h1>
+                <h2 class="tag-description">
+                    {{#if description}}
+                        {{description}}
+                    {{else}}
+                        A collection of {{plural ../pagination.total empty='posts' singular='% post' plural='% posts'}}
+                    {{/if}}
+                </h2>
+            </div>
+            <div class="tag-header-right">
+                {{!--Intentionally empty placeholder--}}
+            </div>
+        </div>
+    </div>
+</header>
+{{/tag}}
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+        <div class="post-feed">
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </div>
+</main>
+
+{{#contentFor "scripts"}}
+{{#if pagination.pages}}
+<script>
+    var maxPages = parseInt('{{pagination.pages}}');
+</script>
+<script src="{{asset "js/infinitescroll.js"}}"></script>
+{{/if}}
+{{/contentFor}}

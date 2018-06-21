@@ -1,0 +1,70 @@
+{{#contentFor "special_body_class"}}gh-head-transparent{{/contentFor}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header outer {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
+    <div class="inner">
+        <div class="site-header-content">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
+                {{#primary_tag}}
+                    <span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>
+                {{/primary_tag}}
+            </div>
+            <h1 class="post-feature-title js-foating-header-trigger js-no-widows">{{title}}</h1>
+            <p class="post-feature-excerpt js-no-widows">{{custom_excerpt}}</p>
+            <div class="post-feature-authors-container">
+                {{> components/author-accordion}}
+                <span class="post-feature-authors"><em>by</em> {{authors}}</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full {{post_class}}">
+
+            <section class="post-full-content">
+                {{content}}
+            </section>
+
+            {{#if @labs.subscribers}}
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Ghost Newsletter</h3>
+                <p>Stay up to date with the latest Ghost news, tutorials and resources. All the best bits, delivered every Sunday.</p>
+                {{> "newsletter-form"}}
+            </section>
+            {{/if}}
+
+            <footer class="post-full-footer">
+
+                {{!-- There are two options for how we display the byline/author-info.
+                If the post has more than one author, we load a specific template
+                from includes/byline-multiple.hbs, otherwise, we just use the
+                default byline. --}}
+
+                {{#has author="count:>1"}}
+                    {{> "byline-multiple"}}
+                {{else}}
+                    {{> "byline-single"}}
+                {{/has}}
+
+            </footer>
+
+            {{!--
+            <section class="post-full-comments">
+                If you want to embed comments, this is a good place to do it!
+            </section>
+            --}}
+
+        </article>
+
+    </div>
+</main>
+
+{{!-- Prev/Next post links in the footer, included from includes/related-posts.hbs --}}
+{{> related-posts}}
+
+{{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
+{{> floating-header}}

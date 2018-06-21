@@ -1,0 +1,177 @@
+{{!< default}}
+{{#if @blog.cover_image}}{{#contentFor "special_body_class"}}gh-head-transparent{{/contentFor}}{{/if}}
+
+{{!-- <header class="site-header outer {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {{#if @blog.logo}}
+                    <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
+                {{else}}
+                    {{@blog.title}}
+                {{/if}}
+            </h1>
+            <h2 class="site-description">{{@blog.description}}</h2>
+        </div>
+    </div>
+</header> --}}
+
+<main id="site-main" class="site-main outer">
+    <div class="highlight-feed">
+        {{#if @blog.cover_image}}<div class="highlight-feed-cover" style="background-image: url({{@blog.cover_image}})"></div>{{/if}}
+
+        <div class="inner">
+
+            <div class="site-section">
+                <div class="post-feed highlight-feed-primary">
+                    {{#get "posts" filter="featured:true" include="authors,tags" limit="1"}}
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                    {{/get}}
+                    <aside>
+                        <a class="highlight-feed-ad highlight-feed-primary-widget" href="https://ghost.org/pricing/">
+                            <img src="{{asset "img/ghostpro.svg"}}" alt="Ghost(Pro)">
+                            <p>Spend less time on your server, more time on your site</p>
+                        </a>
+                        {{#get "posts" filter="tag:twig" include="authors,tags" limit="1"}}
+                        {{#foreach posts}}
+                        <a class="highlight-feed-podcast highlight-feed-primary-widget" href="{{url}}" {{#if primary_tag.feature_image}}style="background-image: url({{primary_tag.feature_image}})"{{/if}}>
+                            <div class="highlight-feed-podcast-content">
+                                <header class="highlight-feed-podcast-header">
+                                    <div class="highlight-feed-podcast-header-left">The Podcast</div>
+                                    <div class="highlight-feed-podcast-header-right">
+                                        <ul class="author-list">
+                                        {{#foreach authors}}
+                                            <li class="author-list-item">
+                                                <div class="author-name-tooltip">
+                                                    {{name}}
+                                                </div>
+                                                {{#if profile_image}}
+                                                    <div href="{{url}}" class="static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></div>
+                                                {{else}}
+                                                    <div href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</div>
+                                                {{/if}}
+
+                                                {{link}}
+                                            </li>
+                                        {{/foreach}}
+                                        </ul>
+                                    </div>
+                                </header>
+                                <div class="highlight-feed-podcast-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.5 10c-.276 0-.5.224-.5.5V12h-1V6.5c0-2.802-1.785-5.188-4.276-6.1l-.082-.03C13.97.135 13.251 0 12.5 0c-.752 0-1.471.135-2.143.371L10.278.4C7.786 1.311 6 3.697 6 6.5V12H5v-1.5c0-.276-.224-.5-.5-.5s-.5.224-.5.5v2c0 4.598 3.476 8.223 8 8.476V23.5c0 .276.224.5.5.5s.5-.224.5-.5v-2.524c4.524-.252 8-3.878 8-8.476v-2c0-.276-.224-.5-.5-.5zM7 11h3.5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5H7V9h3.5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5H7V7h3.5c.276 0 .5-.224.5-.5s-.224-.5-.5-.5H7.025C7.199 4.082 8.363 2.447 10 1.607V3.5c0 .276.224.5.5.5s.5-.224.5-.5V1.213c.323-.092.656-.157 1-.188V3.5c0 .276.224.5.5.5s.5-.224.5-.5V1.025c.344.031.678.096 1.001.188L14 3.5c0 .276.224.5.5.5s.5-.224.5-.5l.001-1.892c1.637.84 2.8 2.474 2.974 4.392H14.5c-.276 0-.5.224-.5.5s.224.5.5.5H18v1h-3.5c-.276 0-.5.224-.5.5s.224.5.5.5H18v1h-3.5c-.276 0-.5.224-.5.5s.224.5.5.5H18v1H7v-1zm10.975 2c-.254 2.799-2.611 5-5.475 5s-5.221-2.201-5.475-5h10.95zM12.5 20c-4.036 0-7.225-3.037-7.476-7h1.001c.257 3.351 3.059 6 6.475 6s6.218-2.649 6.475-6h1.001c-.251 3.963-3.439 7-7.476 7z"/></svg>
+                                </div>
+                                <h3 class="highlight-feed-podcast-title">{{title}}</h3>
+                            </div>
+                        </a>
+                        {{/foreach}}
+                        {{/get}}
+                    </aside>
+                </div>
+                {{#get "posts" filter="featured:true" include="authors,tags" limit="4"}}
+                <div class="post-feed highlight-feed-secondary">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+                {{/get}}
+            </div>
+
+        </div>
+
+    </div>
+
+    {{!-- <div class="breakout-section">
+        <div class="inner">
+            CTA
+        </div>
+    </div> --}}
+
+    <div class="inner">
+
+        {{#get "posts" filter="tag:new-things+featured:false" include="authors,tags" limit="3"}}
+        <div class="site-section">
+            <header class="site-section-header">
+                <h2 class="site-section-title">Product Updates</h2>
+                <a class="site-section-morelink" href="{{@blog.url}}/tag/new-things/">See more {{> "icons/arrow-right-small"}}</a>
+            </header>
+            <div class="post-feed">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{/get}}
+
+        {{#get "posts" filter="tag:tutorials+featured:false" include="authors,tags" limit="3"}}
+        <div class="site-section">
+            <header class="site-section-header">
+                <h2 class="site-section-title">Tutorials</h2>
+                <a class="site-section-morelink" href="{{@blog.url}}/tag/tutorials/">See more {{> "icons/arrow-right-small"}}</a>
+            </header>
+            <div class="post-feed">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{/get}}
+
+        {{#get "posts" filter="tag:careers" include="authors,tags" limit="3"  as |careers|}}
+        {{#if careers}}
+        <div class="site-section">
+            <header class="site-section-header">
+                <h2 class="site-section-title">Careers at Ghost</h2>
+                <a class="site-section-morelink" href="{{@blog.url}}/tag/careers/">See more {{> "icons/arrow-right-small"}}</a>
+            </header>
+            <div class="post-feed">
+
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+
+            </div>
+        </div>
+        {{/if}}
+        {{/get}}
+
+        {{#get "posts" filter="tag:inside-ghost+featured:false" include="authors,tags" limit="3"}}
+        <div class="site-section">
+            <header class="site-section-header">
+                <h2 class="site-section-title">Behind the Scenes</h2>
+                <a class="site-section-morelink" href="{{@blog.url}}/tag/inside-ghost/">See more {{> "icons/arrow-right-small"}}</a>
+            </header>
+            <div class="post-feed">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{/get}}
+
+        {{#get "posts" filter="tag:writing+featured:false" include="authors,tags" limit="3"}}
+        <div class="site-section">
+            <header class="site-section-header">
+                <h2 class="site-section-title">Writing Tips</h2>
+                <a class="site-section-morelink" href="{{@blog.url}}/tag/writing/">See more {{> "icons/arrow-right-small"}}</a>
+            </header>
+            <div class="post-feed">
+                {{#foreach posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            </div>
+        </div>
+        {{/get}}
+
+
+        {{!-- <div class="post-feed">
+            {{#foreach posts}}
+
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div> --}}
+
+    </div>
+</main>

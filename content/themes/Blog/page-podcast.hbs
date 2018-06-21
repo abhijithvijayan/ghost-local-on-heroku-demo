@@ -1,0 +1,93 @@
+{{!< default}}
+{{#contentFor "special_body_class"}}gh-head-transparent{{/contentFor}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header outer {{#if feature_image}}" style="background-image: url({{feature_image}}){{else}}no-cover{{/if}}">
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="podcast-title">This Week in Ghost</h1>
+            <p class="podcast-description">Updates and behind the scenes stories about the world of Ghost. Hosted by Ghost founders <em>John O'Nolan</em> & <em>Hannah Wolfe</em>.</p>
+            <div class="podcast-subscribe-buttons">
+                <a class="btn-podcast btn-podcast-itunes" href="https://itunes.apple.com/us/podcast/ghost/id1370992132">
+                    <img src="{{asset "img/icon-itunes.png"}}" alt="iTunes Logo" rel="presentation">
+                    <span>iTunes</span>
+                </a>
+                <a class="btn-podcast btn-podcast-pocketcasts" href="http://pca.st/9Wkd">
+                    <img src="{{asset "img/icon-pocketcasts.png"}}" alt="Pocket Casts Logo" rel="presentation">
+                    <span>Pocket Casts</span>
+                </a>
+                {{!--
+                <a class="btn-podcast btn-podcast-googleplay" href="#">
+                    <img src="{{asset "img/icon-googleplay.png"}}" alt="Google Play Logo" rel="presentation">
+                    <span>Google Play</span>
+                </a>
+                <a class="btn-podcast btn-podcast-spotify" href="#">
+                    <img src="{{asset "img/icon-spotify.png"}}" alt="Spotify Logo" rel="presentation">
+                    <span>Spotify</span>
+                </a>
+                --}}
+                <a class="btn-podcast btn-podcast-rss" href="https://anchor.fm/s/343fc80/podcast/rss
+">
+                    <img src="{{asset "img/icon-rss.png"}}" alt="RSS Icon" rel="presentation">
+                    <span>RSS</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <div class="podcast-feed">
+            {{#get "posts" filter="primary_tag:twig" include="authors,tags" limit="all"}}
+            {{#foreach posts}}
+
+                <article class="podcast-card no-image">
+                    <a class="podcast-card-content-link" href="{{url}}">
+                        <header class="podcast-card-header">
+                            <h2 class="podcast-card-title">{{title}}</h2>
+                        </header>
+                        <div class="podcast-card-content">
+                            <section class="podcast-card-excerpt">
+                                <p>{{excerpt words="33"}}</p>
+                            </section>
+                            <ul class="author-list">
+                            {{#foreach authors}}
+                                <li class="author-list-item">
+
+                                    <div class="author-name-tooltip">
+                                        {{name}}
+                                    </div>
+
+                                    {{#if profile_image}}
+                                        <div class="static-avatar"><img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" /></div>
+                                    {{else}}
+                                        <div class="static-avatar author-profile-image">{{> "icons/avatar"}}</div>
+                                    {{/if}}
+
+                                    {{link}}
+
+                                </li>
+                            {{/foreach}}
+                            </ul>
+
+                        </div>
+                    </a>
+                </article>
+
+            {{/foreach}}
+            {{/get}}
+        </div>
+
+        <footer class="podcast-lol">
+            Oh, is this seriously the end already? We should probably record some more episodes...
+        </footer>
+
+    </div>
+</main>
+
+{{/post}}
