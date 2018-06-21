@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cobyism/ghost-on-heroku.git"
+    "url": "git://github.com/snathjr/ghost-on-heroku.git"
   },
   "bugs": "https://github.com/TryGhost/Ghost/issues",
   "private": true,
@@ -12,6 +12,7 @@
   "dependencies": {
     "casper": "github:tryghost/Casper#2.1.0",
     "ghost": "^1.8.0",
+    "ghost-storage-cloudinary": "^1.1.2",
     "ghost-storage-adapter-s3": "^2.3.0",
     "mysql": "^2.14.1"
   },
