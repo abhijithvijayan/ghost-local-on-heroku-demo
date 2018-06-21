@@ -28,7 +28,7 @@ Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.
 
 #### Configuring CLOUDINARY file uploads
 
-To configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
+To configure cloudinary file storage, create a cloudinary account [here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6), and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
 
 - `CLOUDINARY_CLOUD_ID`: **Required if using cloudinary image uploads**. This fields is your cloudinary cloud_name or username. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
 
