@@ -24,7 +24,7 @@ After deployment,
 
 #### Using with file uploads disabled
 
-Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with S3 file uploads disabled, you should leave all environment variables beginning with `S3_…` blank.
+Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with cloudinary and S3 file uploads disabled, you should leave all environment variables beginning with `CLOUDINARY_…` `S3_…` blank.
 
 #### Configuring CLOUDINARY file uploads
 
