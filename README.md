@@ -26,6 +26,18 @@ After deployment,
 
 Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with S3 file uploads disabled, you should leave all environment variables beginning with `S3_…` blank.
 
+#### Configuring CLOUDINARY file uploads
+
+To configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
+
+- `CLOUDINARY_CLOUD_ID`: **Required if using cloudinary image uploads**. This fields is your cloudinary cloud_name or username. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
+
+- `CLOUDINARY_API_KEY`: **Required if using cloudinary image uploads**. This is the cloudinary API KEY. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
+
+- `CLOUDINARY_API_SECRET`: **Required if using cloudinary image uploads**. This is the cloudinary API SECRET. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
+
+Once your app is up and running with these variables in place, you should be able to upload images via the Ghost interface and they’ll be stored in Cloudinary. :sparkles:
+
 #### Configuring S3 file uploads
 
 To configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
@@ -137,7 +149,7 @@ release: knex-migrator migrate --mgpath node_modules/ghost
 
 ## Problems?
 
-If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues). If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/cobyism/ghost-on-heroku).
+If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues). If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/snathjr/ghost-on-heroku).
 
 ## License
 
