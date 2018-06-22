@@ -31,7 +31,7 @@ function createConfig() {
         },
         fetch: {
           quality: "auto",
-          secure: false,
+          secure: true,
           cdn_subdomain: true
         }
       }
