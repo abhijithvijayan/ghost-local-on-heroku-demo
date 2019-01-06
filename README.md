@@ -19,12 +19,14 @@ After deployment,
 - First, visit Ghost at `https://YOURAPPNAME.herokuapp.com/ghost` to set up your admin account
 - The app may take a few minutes to come to life
 - Your blog will be publicly accessible at `https://YOURAPPNAME.herokuapp.com`
-- If you subsequently set up a [custom domain](https://devcenter.heroku.com/articles/custom-domains) for your blog, you’ll need to update your Ghost blog’s `PUBLIC_URL` environment variable accordingly
+- If you subsequently set up a [custom domain](https://devcenter.heroku.com/articles/custom-domains) for your blog, you’ll need to update your Ghost blog’s `APP_PUBLIC_URL` environment variable accordingly
 - If you create much content or decide to scale-up the dynos to support more traffic, a more substantial, paid database plan will be required.
 
 #### Using with file uploads disabled
 
 Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with cloudinary and S3 file uploads disabled, you should leave all environment variables beginning with `CLOUDINARY_…` and `S3_…` blank.
+
+*Note: You want to use either CLOUDINARY or S3 for the file upload feature. Cloudinary provides free starter account, to get yours [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)*
 
 #### Configuring CLOUDINARY file uploads
 
