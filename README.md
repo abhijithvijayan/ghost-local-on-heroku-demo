@@ -13,9 +13,11 @@ The latest release of Ghost is now supported! Changes include:
   * Requires MySQL database, available through either of two add-ons:
     * [JawsDB](https://elements.heroku.com/addons/jawsdb) (deploy default)
     * [ClearDB](https://elements.heroku.com/addons/cleardb)
-  * `HEROKU_URL` config var renamed to `PUBLIC_URL` to avoid using Heroku's namespace
+  * `PUBLIC_URL` config var renamed to `APP_PUBLIC_URL` to give it alphabetical precedence
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+### step-by-step tutorial
 
 The following video is a step by step tutorial:
 
