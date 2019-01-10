@@ -17,6 +17,10 @@ The latest release of Ghost is now supported! Changes include:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+The following video is a step by step tutorial:
+
+[![thumbnail](https://img.youtube.com/vi/cODvhXMHgYI/0.jpg)](https://www.youtube.com/watch?v=cODvhXMHgYI)
+
 ### Things you should know
 
 After deployment,
