@@ -1,10 +1,10 @@
-# [Ghost](https://github.com/TryGhost/Ghost) on [Heroku](http://heroku.com)
+# [Ghost 2.X](https://github.com/TryGhost/Ghost) on [Heroku](http://heroku.com)
 
 Ghost is a free, open, simple blogging platform. Visit the project's website at <http://ghost.org>, or read the docs on <http://support.ghost.org>.
 
 ## Disclaimer
 
-This is a fork with some improvements from https://github.com/cobyism/ghost-on-heroku. I have forked and improved this repository as the original developer seemed to have abandoned his repo recently. In this repository I have upgraded ghost to ghost 2.0 and added cloudinary as a free storage alternative to amazon's s3. If you are still interested with the ghost 1.0 version please visit the original repository.
+This is a fork with some improvements from https://github.com/cobyism/ghost-on-heroku. I have forked and improved this repository as the original developer seemed to have abandoned his repo recently. In this repository I have upgraded ghost to ghost 2.X and added cloudinary as a free storage alternative to amazon's s3. If you are still interested with the ghost 1.0 version please visit the original repository.
 
 ## Ghost version 2.X
 
@@ -30,7 +30,7 @@ After deployment,
 - The app may take a few minutes to come to life
 - Your blog will be publicly accessible at `https://YOURAPPNAME.herokuapp.com`
 - If you subsequently set up a [custom domain](https://devcenter.heroku.com/articles/custom-domains) for your blog, you’ll need to update your Ghost blog’s `APP_PUBLIC_URL` environment variable accordingly
-- If you create much content or decide to scale-up the dynos to support more traffic, a more substantial, paid database plan will be required.
+- If you create a lot of content or decide to scale-up the dynos to support more traffic, a more substantial, paid database plan will be required.
 
 #### Using with file uploads disabled
 
@@ -83,10 +83,11 @@ heroku config:set S3_BUCKET_REGION=us-east-1 --app YOURAPPNAME
 
 ### How this works
 
-This repository is a [Node.js](https://nodejs.org) web application that specifies [Ghost as a dependency](https://docs.ghost.org/v1.0.0/docs/using-ghost-as-an-npm-module), and makes a deploy button available.
+This repository is a [Node.js](https://nodejs.org) web application that specifies Ghost as a dependency, and makes a deploy button available.
 
   * Ghost and Casper theme versions are declared in the Node app's [`package.json`](package.json)
-  * Scales across processor cores in larger dynos via [Node cluster API](https://nodejs.org/dist/latest-v6.x/docs/api/cluster.html)
+  * Versions are locked and managed using [yarn](https://yarnpkg.com)
+  * Scales across processor cores in larger dynos via [Node cluster API](https://nodejs.org/dist/latest-v10.x/docs/api/cluster.html)
 
 ## Updating source code
 
@@ -118,50 +119,23 @@ See more about [deploying to Heroku with git](https://devcenter.heroku.com/artic
 
 ### Upgrading Ghost
 
-On each deployment, the Heroku Node/npm build process will **auto-upgrade Ghost to the newest 1.x version**. To prevent this behavior, use npm 5+ (or yarn) to create a lockfile.
+This repository locks Ghost to the "last tested good version" using the standard `yarn.lock` file. If you want to upgrade Ghost on your own,
+you will need to clone or fork this repo as described above. You will then be able to run:
 
 ```bash
-npm install
-git add package-lock.json
-git commit -m 'Lock dependencies'
-git push heroku master
-```
-
-Now, future deployments will always use the same set of dependencies.
-
-To update to newer versions:
-
-```
-npm update
-git add package-lock.json
+yarn upgrade ghost
+git add package.json yarn.lock
 git commit -m 'Update dependencies'
 git push heroku master
 ```
 
-### Database migrations
-
-Newer versions of Ghost frequently require changes to the database. These changes are automated with a process called **database migrations**.
-
-After upgrading Ghost, you may see errors logged like:
-
-> DatabaseIsNotOkError: Migrations are missing. Please run knex-migrator migrate.
-
-To resolve this error, run the pending migrations and restart to get the app back on-line:
-
-```bash
-heroku run knex-migrator migrate --mgpath node_modules/ghost
-heroku restart
-```
-
-This can be automated by adding the following line to `Procfile`:
-
-```
-release: knex-migrator migrate --mgpath node_modules/ghost
-```
+If you're worried about packages beyond the root `ghost` server being outdated, you can check using `yarn outdated`.
 
 ## Problems?
 
-If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues). If you discover an issue with the deployment process provided by *this repository*, then [open an issue here](https://github.com/snathjr/ghost-on-heroku).
+If you have problems using your instance of Ghost, you should check the [official documentation](http://support.ghost.org/) or
+open an issue on [the official issue tracker](https://github.com/TryGhost/Ghost/issues). If you discover an issue with the
+deployment process provided by *this repository*, then [open an issue here](https://github.com/snathjr/ghost-on-heroku).
 
 ## License
 
