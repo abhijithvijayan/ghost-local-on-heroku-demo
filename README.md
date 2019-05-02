@@ -32,6 +32,15 @@ After deployment,
 - If you subsequently set up a [custom domain](https://devcenter.heroku.com/articles/custom-domains) for your blog, you’ll need to update your Ghost blog’s `APP_PUBLIC_URL` environment variable accordingly
 - If you create a lot of content or decide to scale-up the dynos to support more traffic, a more substantial, paid database plan will be required.
 
+#### 🚫🔻 Do not scale-up beyond a single dyno
+
+[Ghost does not support multiple processes.](https://docs.ghost.org/faq/clustering-sharding-multi-server/)
+
+If your Ghost app needs to support substantial traffic, then use a CDN add-on:
+
+  * [Fastly](https://elements.heroku.com/addons/fastly)
+  * [Edge](https://elements.heroku.com/addons/edge).
+
 #### Using with file uploads disabled
 
 Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with cloudinary and S3 file uploads disabled, you should leave all environment variables beginning with `CLOUDINARY_…` and `S3_…` blank.
