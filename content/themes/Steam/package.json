@@ -3,14 +3,14 @@
     "description": "A clean and minimal theme for Ghost.",
     "homepage": "https://github.com/epistrephein/Steam",
     "demo": "https://dev.epistrephe.in/Steam/",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "author": {
         "name": "Tommaso Barbato",
         "email": "epistrephein@gmail.com",
         "url": "https://github.com/epistrephein"
     },
     "engines": {
-        "ghost": ">=1.0.0"
+        "ghost": ">=2.1.0"
     },
     "screenshots": {
         "desktop": "assets/screenshots/screenshot-desktop.jpg",
@@ -19,6 +19,7 @@
     "keywords": [
         "ghost",
         "theme",
+        "ghost-theme",
         "minimal",
         "responsive"
     ],

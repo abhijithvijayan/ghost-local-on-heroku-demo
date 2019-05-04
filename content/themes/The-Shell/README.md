@@ -1,15 +1,12 @@
 # The Shell
 
-Simple theme for [Ghost](http://github.com/tryghost/ghost/).
+Dark color theme for [Ghost](http://github.com/tryghost/ghost/) platform.
 
-* Pure CSS
-* Web Safe fonts
+![image](https://user-images.githubusercontent.com/1761114/55421430-dc7f8e80-5581-11e9-9db8-ad3071f09098.png)
 
-* Added Google Analytics, Disqus and syntax highlighting support by [@AlphaCluster](https://github.com/AlphaCluster) - version without this features available in 'Shell_0.1' branch
+Demo lives here: [https://ghostintheshell.ghost.io](https://ghostintheshell.ghost.io/).
 
+----
 
-
-You can find live example [here](http://ghostintheshell.ghost.io/).
-
-
+###### Check out  [Tabs Closer](https://chrome.google.com/webstore/detail/kbjdilnofjdfokcgnpfcjogadbepemno) - Google Chrome extension which close all tabs of same domain in one click
 

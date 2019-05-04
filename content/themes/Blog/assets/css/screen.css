@@ -1145,38 +1145,10 @@ body:not(.gh-head-transparent) .highlight-feed .inner {
     padding: 0 25px 25px;
 }
 
-/* Featured Card - using #cover tag */
-.post-card.tag-hash-cover {
-    position: relative;
-    background-color: var(--darkgrey);
-}
-.post-card.tag-hash-cover .post-card-content-link {
-    padding-top: 225px;
-    color: #fff;
-    text-align: center;
-}
-.post-card.tag-hash-cover .post-card-title {
-    font-size: 3rem;
-}
-.post-card.tag-hash-cover:before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(35deg, rgba(0,0,0,0.70) 0%,rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.1) 50%);
-}
-.post-card.tag-hash-cover .post-card-tags,
-.post-card.tag-hash-cover .reading-time {
-    position: relative;
-    z-index: 100;
-    color: rgba(255,255,255,0.6);
-}
-
 .author-profile-image {
     display: block;
+    width: 100%;
+    height: 100%;
     background: color(var(--lightgrey) l(+10%));
     border-radius: 100%;
 
@@ -1486,6 +1458,7 @@ body:not(.gh-head-transparent) .highlight-feed .inner {
 .post-full-content video {
     display: block;
     max-width: 1040px;
+    height: auto;
     margin: 1.5em auto;
 }
 @media (max-width: 1040px) {
@@ -1508,8 +1481,6 @@ Usage (In Ghost editor):
 .post-full-content img + br + small,
 .post-full-content .kg-image-card figcaption {
     display: block;
-    margin-top: -3.4em;
-    margin-bottom: 1.5em;
     font-style: italic;
     font-family: var(--sans-serif);
     font-weight: 500;
@@ -1535,9 +1506,9 @@ Usage (In Ghost edtior):
     margin-left: 20px;
 }
 
-
+/* Override third party iframe styles */
 .post-full-content iframe {
-    margin: 0 auto;
+    margin: 0 auto !important;
 }
 
 .post-full-content blockquote {
@@ -2592,77 +2563,99 @@ Usage (In Ghost edtior):
 /* 7.7. Koenig Styles
 /* ---------------------------------------------------------- */
 
-
-/* Ghost 1.0 - .kg-card-markdown to be depricated */
-.kg-card-markdown {
+.post-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 920px;
-    margin: 0 auto;
 }
 
-.post-template .kg-card-markdown > p:first-child {
-    font-size: 1.25em;
-    line-height: 1.5em;
-}
-
-.kg-post {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 920px;
-    margin: 0 auto;
-}
-
-.post-template .kg-post > p:first-child {
+.post-template .post-content > p:first-child {
     font-size: 1.25em;
     line-height: 1.5em;
 }
 
 .post-full-content .kg-image {
-    max-width: 760px;
+    max-width: 100%;
 }
 
 /* Preventing full-width image overlap with post image.  */
-.post-full-image + .post-full-content .kg-post *:first-child .kg-image {
+.post-full-image + .post-full-content .kg-content *:first-child .kg-image {
     width: 100%;
 }
 
-.post-full-content .kg-image-wide {
+.post-full-content .kg-width-wide .kg-image {
     max-width: 1040px;
 }
 
-.post-full-content .kg-image-full {
+.post-full-content .kg-width-full .kg-image {
     max-width: 100vw;
 }
 
-.post-full-content .kg-image-card figcaption {
-    margin: -1.5em auto 3em;
+.post-full-content figure {
+    margin: 1.5em 0 3em;
 }
 
-.post-full-content .kg-image-full + figcaption {
-    max-width: 760px;
+.post-full-content figure img {
+    margin: 0;
+}
+
+.post-full-content figcaption {
+    margin: 1.0em 0 0;
+    font-size: 80%;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+.kg-width-full figcaption {
+    padding: 0 1.5em;
+}
+
+.kg-embed-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
+}
+
+.kg-embed-card .fluid-width-video-wrapper {
+    margin: 0;
 }
 
 @media (max-width: 1040px) {
-    .post-full-content .kg-image-full {
+    .post-full-content .kg-image-full .kg-image {
         width: 100vw;
     }
 }
 
-@media (max-width: 1130px) {
-    .post-full-content .kg-image-full + figcaption {
-        padding: 0 11vw;
-        max-width: 100vw;
-    }
+.kg-gallery-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1040px;
+    width: 100vw;
 }
 
-@media (max-width: 600px) {
-    .post-full-content .kg-image-full + figcaption {
-        padding: 0 4vw;
-    }
+.kg-gallery-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+.kg-gallery-image img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+    margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 0.75em;
+}
+
 
 /* 8. Author Template
 /* ---------------------------------------------------------- */
@@ -2833,4 +2826,136 @@ Usage (In Ghost edtior):
 
 .error-template .post-feed {
     padding-top: 0;
+}
+
+/* New Home 2019 */
+
+.home-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    margin-top: 4vw;
+}
+
+.changelog {
+    flex: 1 1 auto;
+    padding: 30px;
+    border: 1px solid #e5eff5;
+    background: #fff;
+}
+
+.changelog-item {
+    position: relative;
+    display: flex;
+    padding: 2rem 0 15px 0;
+    margin: 0 0 15px 0;
+    color: var(--darkgrey);
+}
+
+.changelog-item:hover {
+    text-decoration: none;
+}
+
+.changelog-item-sidebar {
+    flex: 0 0 100px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+.changelog-item-content {
+    flex: 1 1 auto;
+    position: relative;
+    border-bottom: rgba(0,0,0,0.05) 1px solid;
+}
+
+.changelog-item img {
+    display: block;
+    max-width: 100% !important;
+    margin: 0 0 1.5em;
+}
+
+.changelog-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border: var(--lightgrey) 1px solid;
+    color: var(--midgrey);
+    font-size: 1rem;
+    line-height: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.changelog-tag-new {
+    border-color: var(--green);
+    color: #fff;
+    background: var(--green);
+}
+.changelog-tag-fixed {
+    border-color: var(--red);
+    color: var(--red);
+}
+.changelog-tag-improved {
+    border-color: var(--blue);
+    color: #fff;
+    background: var(--blue);
+}
+
+.changelog-item-title {
+    margin-top: 1px;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.changelog-item.tag-hash-minor .changelog-item-title {
+    display: none;
+}
+
+.changelog-date {
+    flex: 1 0 100%;
+    display: block;
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    font-size: 1rem;
+    line-height: 1em;
+    color: var(--midgrey);
+}
+
+.changelog-image {
+    margin: 0 0 1.5em 0;
+}
+
+.readmore {
+    display: block;
+    margin: 0 0 1.5em 0;
+    color: var(--blue);
+}
+
+.changelog-item:hover .readmore {
+    text-decoration: underline;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    width: 300px;
+    margin: 0 0 0 30px;
+}
+
+@media (max-width: 960px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .changelog-item {
+        flex-direction: column;
+        padding-top: 0;
+    }
+    .changelog-item-sidebar {
+        margin: 0 0 40px 0;
+        flex: 0 0 auto;
+        text-align-last: left;
+    }
 }

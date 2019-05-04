@@ -3,7 +3,7 @@ $(function ($) {
     var currentPage = 1;
     var pathname = window.location.pathname;
     var $document = $(document);
-    var $result = $('.post-feed');
+    var $result = $('.js-scroll-container');
     var buffer = 200;
 
     var ticking = false;
@@ -61,7 +61,7 @@ $(function ($) {
 
         $.get(nextPage, function (content) {
             var parse = document.createRange().createContextualFragment(content);
-            var posts = parse.querySelectorAll('.post');
+            var posts = parse.querySelectorAll('.js-scroll-item');
             if (posts.length) {
                 [].forEach.call(posts, function (post) {
                     $result[0].appendChild(post);

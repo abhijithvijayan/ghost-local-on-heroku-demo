@@ -33,7 +33,9 @@
             {{/has}}
 
             <section class="post-full-content">
-                {{content}}
+                <div class="post-content">
+                    {{content}}
+                </div>
             </section>
 
             {{#if @labs.subscribers}}
@@ -93,6 +95,15 @@
 {{#contentFor "scripts"}}
 <script>
 
+var images = document.querySelectorAll('.kg-gallery-image img');
+images.forEach(function (image) {
+    var container = image.closest('.kg-gallery-image');
+    var width = image.attributes.width.value;
+    var height = image.attributes.height.value;
+    var ratio = width / height;
+    container.style.flex = ratio + ' 1 0%';
+})
+
 // NOTE: Scroll performance is poor in Safari
 // - this appears to be due to the events firing much more slowly in Safari.
 //   Dropping the scroll event and using only a raf loop results in smoother
@@ -103,7 +114,7 @@ $(document).ready(function () {
     $postContent.fitVids();
     // End fitVids
 
-    var progressBar = document.querySelector('progress');
+    var progressBar = document.querySelector('#reading-progress');
     var header = document.querySelector('.floating-header');
     var title = document.querySelector('.js-foating-header-trigger');
 

@@ -9,16 +9,16 @@
 <header id="post-header"{{#if feature_image}} class="has-cover" {{/if}}>
 	<div class="inner">
 		<nav id="navigation">
-			{{#if @blog.logo}}
+			{{#if @site.logo}}
 			<span class="blog-logo">
-				<a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{t "Blog Logo"}}" /></a>
+				<a href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{t "Blog Logo"}}" /></a>
 			</span>
 			{{else}}
 			<span id="home-button" class="nav-button">
-				<a class="home-button" href="{{@blog.url}}" title="{{t "Home"}}"><i class="ic ic-arrow-left"></i> {{t "Home"}}</a>
+				<a class="home-button" href="{{@site.url}}" title="{{t "Home"}}"><i class="ic ic-arrow-left"></i> {{t "Home"}}</a>
 			</span>
 			{{/if}}
-			{{#if @blog.navigation}}
+			{{#if @site.navigation}}
 			<span id="menu-button" class="nav-button">
 				<a class="menu-button"><i class="ic ic-menu"></i> {{t "Menu"}}</a>
 			</span>
@@ -47,9 +47,6 @@
 					<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 						<i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
 					</a>
-					<a class="googleplus" href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-						<i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
-					</a>
 					<div class="clear"></div>
 				</div>
 
@@ -65,7 +62,7 @@
 						<p class="post-authors-authors">{{authors separator=", "}}</p>
 					</aside>
         {{else}}
-					{{#author}}
+					{{#primary_author}}
 						<aside class="post-author">
 							<figure class="post-author-avatar avatar">
 								{{#if profile_image}}
@@ -92,7 +89,7 @@
 							</div>
 							<div class="clear"></div>
 						</aside>
-					{{/author}}
+					{{/primary_author}}
         {{/has}}
 
 			</section>
