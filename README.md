@@ -41,27 +41,9 @@ If your Ghost app needs to support substantial traffic, then use a CDN add-on:
   * [Fastly](https://elements.heroku.com/addons/fastly)
   * [Edge](https://elements.heroku.com/addons/edge).
 
-#### Using with file uploads disabled
-
-Heroku app filesystems [aren’t meant for permanent storage](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem), so file uploads are disabled by default when using this repository to deploy a Ghost blog to Heroku. If you’re using Ghost on Heroku with cloudinary and S3 file uploads disabled, you should leave all environment variables beginning with `CLOUDINARY_…` and `S3_…` blank.
-
-*Note: You want to use either CLOUDINARY or S3 for the file upload feature. Cloudinary provides free starter account, to get yours [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)*
-
-#### Configuring CLOUDINARY file uploads
-
-To configure cloudinary file storage, create a cloudinary account [here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6), and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
-
-- `CLOUDINARY_CLOUD_ID`: **Required if using cloudinary image uploads**. This fields is your cloudinary cloud_name or username. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
-
-- `CLOUDINARY_API_KEY`: **Required if using cloudinary image uploads**. This is the cloudinary API KEY. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
-
-- `CLOUDINARY_API_SECRET`: **Required if using cloudinary image uploads**. This is the cloudinary API SECRET. You can find it at your cloudinary dashboard. If you dont have a cloudinary account yet [signup here](https://cloudinary.com/invites/lpov9zyyucivvxsnalc5/rd581neuohujqsquqyr6)
-
-Once your app is up and running with these variables in place, you should be able to upload images via the Ghost interface and they’ll be stored in Cloudinary. :sparkles:
-
 #### Configuring S3 file uploads
 
-To configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
+The blog is configured to use Cloudinary file storage by default. If you want to configure S3 file storage, create an S3 bucket on Amazon AWS, and then specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
 
 - `S3_ACCESS_KEY_ID` and `S3_ACCESS_SECRET_KEY`: **Required if using S3 uploads**. These fields are the AWS key/secret pair needed to authenticate with Amazon S3. You must have granted this keypair sufficient permissions on the S3 bucket in question in order for S3 uploads to work.
 
