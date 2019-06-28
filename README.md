@@ -14,6 +14,7 @@ The latest release of Ghost is now supported! Changes include:
     * [JawsDB](https://elements.heroku.com/addons/jawsdb) (deploy default)
     * [ClearDB](https://elements.heroku.com/addons/cleardb)
   * `PUBLIC_URL` config var renamed to `APP_PUBLIC_URL` to give it alphabetical precedence
+  * The app is configured to use `Cloudinary File Storage` by default.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
