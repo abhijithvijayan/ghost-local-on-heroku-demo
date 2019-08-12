@@ -1,2 +1,0 @@
-"use strict";function initDropdowns(o){o.children(".gh-drop-trigger").on("click",function(e){e.stopPropagation();var i=$(this).parent();i.hasClass("active")?(i.removeClass("active"),$(document).off("click")):(o.removeClass("active"),i.addClass("active"),$(document).on("click",function(){o.removeClass("active")}))})}$(".gh-nav-burger").click(function(){$(".gh-mobilehead").toggleClass("gh-mobilehead-open")});
-//# sourceMappingURL=index.js.map
