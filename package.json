@@ -14,7 +14,11 @@
     "ghost": "2.27.0",
     "ghost-storage-adapter-s3": "^2.8.0",
     "ghost-storage-cloudinary": "^1.1.4",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "attila": "github:zutrinken/attila#1.13.0",
+    "london": "github:tryghost/london",
+    "massively": "github:tryghost/massively",
+    "official-blog": "github:tryghost/blog"
   },
   "engines": {
     "node": "10.X"
