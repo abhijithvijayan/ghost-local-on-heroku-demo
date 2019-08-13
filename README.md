@@ -2,6 +2,10 @@
 
 Ghost is a free, open, simple blogging platform. Visit the project's website at <http://ghost.org>, or read the docs on <http://support.ghost.org>.
 
+[![GitHub issues](https://img.shields.io/github/issues/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/issues)
+[![GitHub forks](https://img.shields.io/github/forks/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/network)
+[![GitHub stars](https://img.shields.io/github/stars/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/stargazers)
+
 ## Disclaimer
 
 This is a fork with some improvements from https://github.com/cobyism/ghost-on-heroku. I have forked and improved this repository as the original developer seemed to have abandoned his repo recently. In this repository I have upgraded ghost to ghost 2.X and added cloudinary as a free storage alternative to amazon's s3. If you are still interested with the ghost 1.0 version please visit the original repository.
