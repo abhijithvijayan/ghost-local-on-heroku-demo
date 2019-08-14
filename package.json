@@ -16,9 +16,9 @@
     "ghost-storage-cloudinary": "^1.1.4",
     "mysql": "^2.17.1",
     "attila": "github:zutrinken/attila#1.13.0",
-    "london": "github:tryghost/london",
-    "massively": "github:tryghost/massively",
-    "official-blog": "github:tryghost/blog"
+    "london": "github:tryghost/london#1.0.0",
+    "massively": "github:tryghost/massively#1.0.2",
+    "official-blog": "github:tryghost/blog#v3.0.0"
   },
   "engines": {
     "node": "10.X"
