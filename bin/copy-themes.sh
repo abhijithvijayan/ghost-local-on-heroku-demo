@@ -3,7 +3,9 @@ themes=(
 	attila
 	london
 	massively
-	official-blog
+	bleak
+	the-shell
+	vapor
 )
 
 for theme in "${themes[@]}"
