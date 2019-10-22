@@ -78,6 +78,10 @@ heroku addons:create bucketeer --app YOURAPPNAME
 heroku config:set S3_BUCKET_REGION=us-east-1 --app YOURAPPNAME
 ```
 
+#### Dark Mode is now available
+
+As of version 3.0.0 Dark mode is available on Ghost Casper theme. Please make sure your's system's dark mode is enabled first to activate dark mode.
+
 ### How this works
 
 This repository is a [Node.js](https://nodejs.org) web application that specifies Ghost as a dependency, and makes a deploy button available.
