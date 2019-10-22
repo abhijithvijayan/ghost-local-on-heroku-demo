@@ -19,6 +19,7 @@ The latest release of Ghost is now supported! Changes include:
   - [ClearDB](https://elements.heroku.com/addons/cleardb)
 - `PUBLIC_URL` config var renamed to `APP_PUBLIC_URL` to give it alphabetical precedence
 - The app is configured to use `Cloudinary File Storage` by default.
+- Dark Mode on `casper` theme! Please make sure to activate your system's dark-mode first.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
