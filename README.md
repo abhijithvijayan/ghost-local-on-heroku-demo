@@ -21,7 +21,7 @@ The latest release of Ghost is now supported! Changes include:
 - The app is configured to use `Cloudinary File Storage` by default.
 - Dark Mode on `casper` theme! Please make sure to activate your system's dark-mode first.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/snathjr/ghost-on-heroku)
 
 ### step-by-step tutorial
 
