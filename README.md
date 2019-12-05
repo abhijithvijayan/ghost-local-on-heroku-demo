@@ -79,6 +79,14 @@ heroku addons:create bucketeer --app YOURAPPNAME
 heroku config:set S3_BUCKET_REGION=us-east-1 --app YOURAPPNAME
 ```
 
+#### Setting up SMTP service
+
+When you spin up your heroku dyno for the first time, mailgun is by default setup with a sandbox account. It means, sending emails to only authorized reciepients is supported. If you want to send emails / invite your collaborators you need to set their email in authorized recipient section on mailgun dashboard. See https://help.mailgun.com/hc/en-us/articles/217531258-Authorized-Recipients for more.
+
+A more permanent solution would be to use a custom domain and verify your domain via mailgun customer support. Cheers!
+
+FYI: You can access mailgun dashboard by visiting heroku dashboard > click on your app > resources tab > click on mailgun addon.
+
 #### Dark Mode is now available
 
 As of version 3.0.0 Dark mode is available on Ghost Casper theme. Please make sure your's system's dark mode is enabled first to activate dark mode.
