@@ -6,6 +6,7 @@ themes=(
 	bleak
 	the-shell
 	vapor
+        pico
 )
 
 for theme in "${themes[@]}"
