@@ -7,6 +7,7 @@ themes=(
 	the-shell
 	vapor
         pico
+        lyra
 )
 
 for theme in "${themes[@]}"

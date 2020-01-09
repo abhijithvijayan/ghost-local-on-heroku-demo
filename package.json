@@ -21,7 +21,8 @@
     "mysql": "^2.17.1",
     "the-shell": "github:mityalebedev/The-Shell#v2.0.0",
     "vapor": "github:sethlilly/Vapor#v1.6.0",
-    "pico": "github:tryghost/pico"
+    "pico": "github:tryghost/pico",
+    "lyra": "github:tryghost/lyra"
   },
   "engines": {
     "node": "10.X"
