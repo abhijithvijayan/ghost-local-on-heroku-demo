@@ -23,6 +23,8 @@ The latest release of Ghost is now supported! Changes include:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+If the above button does not work for you try this: https://heroku.com/deploy?template=https://github.com/snathjr/ghost-on-heroku
+
 ### step-by-step tutorial
 
 The following video is a step by step tutorial:
