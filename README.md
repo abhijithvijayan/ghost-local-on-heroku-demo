@@ -5,6 +5,7 @@ Ghost is a free, open, simple blogging platform. Visit the project's website at 
 [![GitHub issues](https://img.shields.io/github/issues/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/network)
 [![GitHub stars](https://img.shields.io/github/stars/SNathJr/ghost-on-heroku)](https://github.com/SNathJr/ghost-on-heroku/stargazers)
+[![Deploy to Heroku](https://img.shields.io/badge/deploy%20to-heroku-6762a6)](https://heroku.com/deploy)
 
 ## Disclaimer
 
@@ -21,9 +22,13 @@ The latest release of Ghost is now supported! Changes include:
 - The app is configured to use `Cloudinary File Storage` by default.
 - Dark Mode on `casper` theme! Please make sure to activate your system's dark-mode first.
 
+### Deploy
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-If the above button does not work for you try this: https://heroku.com/deploy?template=https://github.com/snathjr/ghost-on-heroku
+If the above button does not work for you, disable anything that might be blocking Heroku from inferring the referrer (e.g. Brave shield), or try this: https://heroku.com/deploy?template=https://github.com/snathjr/ghost-on-heroku (if you're using a fork, make sure to point the template link to your repo).
+
+**NOTE**: we do _not_ support deploying by downloading the source file or by copying over a cloned folder. Downloading/copying folders tends to break symlinks, so we recommend that you deploy by clicking the button in this repository or your fork on GitHub.
 
 ### step-by-step tutorial
 
