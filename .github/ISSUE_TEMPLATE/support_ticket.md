@@ -17,4 +17,4 @@ A clear and concise description of what you have done, like googled and tried or
 If you have not checked out other issues first on this repository or tryghost/ghost repository. Please do so before submitting.
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+Add any other context or screenshots about the support you need here.
