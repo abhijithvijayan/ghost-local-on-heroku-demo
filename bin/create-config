@@ -23,6 +23,18 @@ function createConfig() {
         assetHost:       process.env.S3_ASSET_HOST_URL
       }
     }
+  } else if (!!process.env.WEBDAV_SERVER_URL){
+    fileStorage = true
+    storage = {
+      'active': 'webdav',
+      'webdav': {
+        'url': process.env.WEBDAV_SERVER_URL,
+        'username': process.env.WEBDAV_USERNAME,
+        'password': process.env.WEBDAV_PASSWORD,
+        'pathPrefix': process.env.WEBDAV_PATH_PREFIX,
+        'storagePathPrefix': process.env.WEBDAV_STORAGE_PATH_PREFIX
+      }
+    }
   } else if (!!process.env.BUCKETEER_AWS_ACCESS_KEY_ID) {
     fileStorage = true
     storage = {
