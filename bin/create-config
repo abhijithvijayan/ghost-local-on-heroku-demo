@@ -23,6 +23,13 @@ function createConfig() {
         assetHost:       process.env.S3_ASSET_HOST_URL
       }
     }
+  } else if (!!process.env.WEBDAV_SERVER_URL){
+    fileStorage = true
+    storage = {
+      'active': 'webdav',
+      // no need to set configs; they're set directly from
+      // the environment variables.
+    }
   } else if (!!process.env.BUCKETEER_AWS_ACCESS_KEY_ID) {
     fileStorage = true
     storage = {

@@ -36,6 +36,26 @@
     "S3_ASSET_HOST_URL": {
       "description": "Optional custom CDN asset host url, if using S3 file storage.",
       "required": false
+    },
+    "WEBDAV_SERVER_URL": {
+      "description": "URL of your WebDAV server, if using WebDAV file storage",
+      "required": false
+    },
+    "WEBDAV_USERNAME": {
+      "description": "Username for your WebDAV server, if using WebDAV file storage",
+      "required": false
+    },
+    "WEBDAV_PASSWORD": {
+      "description": "Password for your WebDAV server, if using WebDAV file storage",
+      "required": false
+    },
+    "WEBDAV_PATH_PREFIX": {
+      "description": "Optional path prefix for your WebDAV server, if using WebDAV file storage",
+      "required": false
+    },
+    "WEBDAV_STORAGE_PATH_PREFIX": {
+      "description": "Optional storage path prefix for  your WebDAV server, if using WebDAV file storage",
+      "required": false
     }
   }
 }
