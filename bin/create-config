@@ -27,13 +27,8 @@ function createConfig() {
     fileStorage = true
     storage = {
       'active': 'webdav',
-      'webdav': {
-        'url': process.env.WEBDAV_SERVER_URL,
-        'username': process.env.WEBDAV_USERNAME,
-        'password': process.env.WEBDAV_PASSWORD,
-        'pathPrefix': process.env.WEBDAV_PATH_PREFIX,
-        'storagePathPrefix': process.env.WEBDAV_STORAGE_PATH_PREFIX
-      }
+      // no need to set configs; they're set directly from
+      // the environment variables.
     }
   } else if (!!process.env.BUCKETEER_AWS_ACCESS_KEY_ID) {
     fileStorage = true
