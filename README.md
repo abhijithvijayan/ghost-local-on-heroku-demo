@@ -86,6 +86,34 @@ heroku addons:create bucketeer --app YOURAPPNAME
 heroku config:set S3_BUCKET_REGION=us-east-1 --app YOURAPPNAME
 ```
 
+#### Configuring WebDAV file uploads
+
+As an alternative to S3 and Cloudinary, you can also use your own WebDAV server, via the [ghost-webdav-adapter](https://github.com/bartt/ghost-webdav-storage-adapter) plugin. To use these, simply specify the following details as environment variables on the Heroku deployment page (or add these environment variables to your app after deployment via the Heroku dashboard):
+
+- `WEBDAV_SERVER_URL`: **Required if using WebDAV uploads**. The URL to access your WebDAV server. Note that this requires the `https` format (not `dav://` or `davs://`). Example: `https://mysite.com:2078`.
+
+- `WEBDAV_USERNAME` and `WEBDAV_PASSWORD`: Optional even if using WebDAV uploads. These are the username and password used to log in to your WebDAV account. Unless you're using an open and unsecured server, you'll probably need to set these options too.
+
+- `WEBDAV_PATH_PREFIX`: Optional even if using WebDAV uploads. Subfolder on the WebDAV server where you want to store the files. Defaults to the main directory or `/`. Example: `/ghost-uploads`.
+
+- `WEBDAV_STORAGE_PATH_PREFIX`: Optional even if using WebDAV uploads. This is the location where the public will be able to access the uploaded file. Defaults to `content/`, which makes Ghost server the files for you, but can also be an external domain such as `https://media.mysite.com/ghost-files`.
+
+The difference between `WEBDAV_PATH_PREFIX` and `WEBDAV_STORAGE_PATH_PREFIX` is this: you *upload* the files to `WEBDAV_PATH_PREFIX` via WebDAV, but you *download* them from `WEBDAV_STORAGE_PATH_PREFIX` using ordinary HTTP.
+
+For more detailed information, you can refer to [the ghost-webdav-adapter repo](https://github.com/bartt/ghost-webdav-storage-adapter)
+
+##### Known Issue
+
+There is a bug (that only occurs sometimes): when uploading a file to a subdirectory, it creates one level of the directory and then fails, so you have to retry to get to the next level. For example: if it wants to save the file 2020/06/12/example.jpg but only the 2020 folder exists, then it will take three tries (refresh the page and upload again) to get it working:
+
+- create 2020/06 and fail
+- create 2020/06/12 and fail
+- upload the file to 2020/06/12/example.jpg
+
+This seems to be a bug in the storage adapter plugin itself (yet to be reported).
+
+**Note:** Remember to **refresh** the page on each retry. Retrying without refreshing the page does not seem to work. If you don't succeed after 3-4 tries, there might be something else wrong with your configuration.
+
 #### Setting up SMTP service
 
 When you spin up your heroku dyno for the first time, mailgun is by default setup with a sandbox account. It means, sending emails to only authorized reciepients is supported. If you want to send emails / invite your collaborators you need to set their email in authorized recipient section on mailgun dashboard. See https://help.mailgun.com/hc/en-us/articles/217531258-Authorized-Recipients for more.
