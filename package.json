@@ -29,7 +29,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "node current/index.js",
+    "start": "node ./current/index.js",
     "postinstall": "bash bin/copy-themes.sh && bash bin/copy-webdav-plugin.sh"
   }
 }
