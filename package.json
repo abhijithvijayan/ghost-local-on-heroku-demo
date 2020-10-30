@@ -13,7 +13,6 @@
     "attila": "github:zutrinken/attila#1.13.0",
     "bleak": "github:zutrinken/bleak#1.4.0",
     "casper": "github:tryghost/Casper#3.0.4",
-    "ghost": "^3.2.0",
     "ghost-storage-adapter-s3": "^2.8.0",
     "ghost-storage-cloudinary": "^2.0.2",
     "ghost-webdav-storage-adapter": "^0.3.5",
@@ -27,10 +26,10 @@
     "liebling": "github:snathjr/liebling"
   },
   "engines": {
-    "node": "10.X"
+    "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node current/index.js",
     "postinstall": "bash bin/copy-themes.sh && bash bin/copy-webdav-plugin.sh"
   }
 }
